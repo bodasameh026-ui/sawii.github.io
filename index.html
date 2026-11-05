@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title> - العاب و فيديوهات و قرآن</title>
+<style>
+* { margin:0; padding:0; box-sizing:border-box; font-family: Arial, sans-serif; }
+body { background:#f5f5f5; }
+nav { background:white; display:flex; justify-content:space-between; align-items:center; padding:18px 40px; box-shadow:0 2px 10px rgba(0,0,0,0.08); position:sticky; top:0; z-index:10; }
+.logo { font-size:30px; font-weight:900; color:#2d0a5e; }
+nav .links a { margin:0 10px; text-decoration:none; color:#222; font-weight:bold; }
+.hero { background:linear-gradient(135deg, #4c1d95, #9333ea, #db2777); color:white; text-align:center; padding:60px 20px; }
+.hero h1 { font-size:55px; margin-bottom:12px; }
+.hero p { font-size:19px; opacity:.9; }
+.section { padding:40px 20px; max-width:1100px; margin:auto; }
+.section h2 { text-align:center; font-size:35px; margin-bottom:25px; color:#1a1a2e; }
+.cards { display:flex; gap:20px; justify-content:center; flex-wrap:wrap; }
+.card { background:white; width:340px; padding:25px; border-radius:15px; box-shadow:0 5px 20px rgba(0,0,0,0.08); text-align:center; }
+.card h3 { font-size:24px; margin-bottom:10px; }
+.card p { color:#666; line-height:1.6; margin-bottom:15px; }
+.btn { background:#7c3aed; color:white; border:none; padding:12px 22px; border-radius:10px; font-weight:bold; cursor:pointer; font-size:16px; }
+.btn2 { background:#00b894; color:white; border:none; padding:12px 22px; border-radius:10px; font-weight:bold; cursor:pointer; font-size:16px; }
+input { padding:12px; border-radius:10px; border:1px solid #ddd; width:80%; text-align:center; font-size:18px; margin-bottom:10px; }
+.video-box { background:white; padding:15px; border-radius:15px; box-shadow:0 5px 20px rgba(0,0,0,0.08); margin-bottom:20px; }
+.video-box iframe { width:100%; height:300px; border:none; border-radius:10px; }
+.video-box h3 { margin:12px 0 5px; }
+.quran-box { background:#fff; border:2px solid #00b894; border-radius:20px; padding:30px; text-align:center; max-width:800px; margin:auto; box-shadow:0 5px 20px rgba(0,0,0,0.08); }
+.quran-box h3 { font-size:30px; color:#00695c; margin-bottom:15px; }
+.quran-text { font-size:26px; line-height:2.1; color:#222; margin:20px 0; }
+audio { width:100%; margin-top:15px; }
+.xo { display:grid; grid-template-columns:repeat(3,70px); gap:8px; justify-content:center; margin:15px 0; }
+.xo button { height:70px; font-size:30px; font-weight:900; border-radius:10px; border:1px solid #ddd; background:#f9f9f9; cursor:pointer; }
+footer { text-align:center; padding:20px; color:#777; background:#eee; margin-top:20px; }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="logo">صاوي القط 💜</div>
+  <div class="links">
+    <a href="#games">الألعاب</a>
+    <a href="#videos">فيديوهات</a>
+    <a href="#quran">قرآن كريم</a>
+  </div>
+</nav>
+
+<div class="hero">
+  <h1>اهلا بيك يا حبيب قلب الصاوي </h1>
+  <p>العب و اتفرج على فيديوهات و اسمع قرآن كريم - كله في مكان واحد</p>
+</div>
+
+<!-- الالعاب -->
+<div class="section" id="games">
+  <h2>🎮 الألعاب</h2>
+  <div class="cards">
+    <div class="card">
+      <h3>لعبة X O</h3>
+      <p>العب مع صاحبك، اللي يكمل 3 الاول يكسب</p>
+      <div class="xo" id="xo"></div>
+      <p id="xoMsg">دور الـ X</p>
+      <button class="btn" onclick="resetXO()">فوره جديدة</button>
+    </div>
+    <div class="card">
+      <h3>🎯 خمن الرقم</h3>
+      <p>انا مخبي رقم من 1 لـ 10، حاول تخمنه</p>
+      <input type="number" id="guessInput" placeholder="اكتب رقم">
+      <br>
+      <button class="btn2" onclick="checkGuess()">جرب</button>
+      <p id="guessMsg" style="margin-top:12px; font-weight:bold;"></p>
+    </div>
+  </div>
+</div>
+
+<!-- الفيديوهات -->
+<div class="section" id="videos">
+  <h2>🎬 فيديوهات الدحيح</h2>
+  <div class="video-box">
+    <iframe src="https://www.youtube.com/embed/WbDh1Ot7Dhg" allowfullscreen></iframe>
+    <h3>الدحيح - الترميم</h3>
+    <p>حلقة جامدة عن ترميم المباني</p>
+  </div>
+  <div class="video-box">
+    <iframe src="https://www.youtube.com/embed/ndDSORY8mrU" allowfullscreen></iframe>
+    <h3>الدحيح - نهاية الامويين كانت بداية المجزرة</h3>
+  </div>
+  <div class="video-box">
+    <iframe src="https://www.youtube.com/embed/NNEhETUAPQQ" allowfullscreen></iframe>
+    <h3>الدحيح - القهوة خمر الصالحين</h3>
+  </div>
+</div>
+
+<!-- قرآن -->
+<div class="section" id="quran">
+  <h2>📖 قرآن كريم</h2>
+  <div class="quran-box">
+    <h3>سورة الناس</h3>
+    <p style="color:#888;">مكية - 6 آيات</p>
+    <div class="quran-text">
+      بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ<br>
+      قُلْ أَعُوذُ بِرَبِّ النَّاسِ ﴿1﴾<br>
+      مَلِكِ النَّاسِ ﴿2﴾<br>
+      إِلَٰهِ النَّاسِ ﴿3﴾<br>
+      مِنْ شَرِّ الْوَسْوَاسِ الْخَنَّاسِ ﴿4﴾<br>
+      الَّذِي يُوَسْوِسُ فِي صُدُورِ النَّاسِ ﴿5﴾<br>
+      مِنَ الْجِنَّةِ وَالنَّاسِ ﴿6﴾
+    </div>
+    <button class="btn2" onclick="document.getElementById('quranAudio').play()">▶️ شغل سورة الناس بصوت مشاري العفاسي</button>
+    <audio id="quranAudio" controls src="https://download.quranicaudio.com/quran/mishaari_rashid_alafasy/114.mp3"></audio>
+    <hr style="margin:25px 0;">
+    <h3 style="font-size:22px;">سور تانية</h3>
+    <p style="margin-top:10px;">
+      <button class="btn" onclick="playSurah(113,'الفلق')">سورة الفلق</button>
+      <button class="btn" onclick="playSurah(112,'الاخلاص')">سورة الاخلاص</button>
+      <button class="btn" onclick="playSurah(1,'الفاتحة')">سورة الفاتحة</button>
+    </p>
+    <p id="nowPlaying" style="margin-top:12px; font-weight:bold; color:#00695c;"></p>
+  </div>
+</div>
+
+<footer>صاوي القط — جميع الحقوق محفوظة ©</footer>
+
+<script>
+// لعبة XO
+let xoBoard = ["","","","","","","","",""];
+let xoTurn = "X";
+let xoDiv = document.getElementById("xo");
+function drawXO(){
+  xoDiv.innerHTML = "";
+  xoBoard.forEach((v,i)=>{
+    let b = document.createElement("button");
+    b.textContent = v;
+    b.onclick = ()=>{
+      if(v=="" && !xoBoard.includes("win")){
+        xoBoard[i]=xoTurn;
+        xoTurn = xoTurn=="X"?"O":"X";
+        document.getElementById("xoMsg").textContent = "دور الـ " + xoTurn;
+        drawXO();
+        checkWinner();
+      }
+    };
+    xoDiv.appendChild(b);
+  });
+}
+function checkWinner(){
+  let w = [[0,1,2],[3,4,5],[6,7,8],[0,3,6],[1,4,7],[2,5,8],[0,4,8],[2,4,6]];
+  for(let c of w){
+    if(xoBoard[c[0]] && xoBoard[c[0]]==xoBoard[c[1]] && xoBoard[c[1]]==xoBoard[c[2]]){
+      document.getElementById("xoMsg").textContent = "كسب الـ " + xoBoard[c[0]] + " 🎉";
+      return;
+    }
+  }
+}
+function resetXO(){ xoBoard=["","","","","","","","",""]; xoTurn="X"; document.getElementById("xoMsg").textContent="دور الـ X"; drawXO(); }
+drawXO();
+
+// لعبة خمن الرقم
+let secret = Math.floor(Math.random()*10)+1;
+function checkGuess(){
+  let g = parseInt(document.getElementById("guessInput").value);
+  let m = document.getElementById("guessMsg");
+  if(!g){ m.textContent="اكتب رقم الاول!"; return; }
+  if(g==secret){ m.textContent="صح يا قلبي! 🎉 الرقم كان " + secret; secret = Math.floor(Math.random()*10)+1; }
+  else if(g>secret){ m.textContent="انزل شوية 👇"; }
+  else { m.textContent="اطلع شوية 👆"; }
+}
+
+// تشغيل سور
+function playSurah(num, name){
+  let a = document.getElementById("quranAudio");
+  a.src = "https://download.quranicaudio.com/quran/mishaari_rashid_alafasy/" + String(num).padStart(3,'0') + ".mp3";
+  a.play();
+  document.getElementById("nowPlaying").textContent = "شغال دلوقتي: سورة " + name;
+}
+</script>
+
+</body>
+</html>
